@@ -1,0 +1,17 @@
+<meta>
+	<script src = "c.lua" type = "client" cache = "false" />
+	<script src = "s.lua" type = "server" />
+	<file src = "f/Akrobat-Bold.otf" />
+	<file src = "i/meskie.png" />
+	<file src = "i/zenskie.png" />
+	<file src = "i/premium.png" />
+	<file src = "i/meskie2.png" />
+	<file src = "i/zenskie2.png" />
+	<file src = "i/premium2.png" />
+	<file src = "i/main.png" />
+	<file src = "i/none.png" />
+	<file src = "i/none2.png" />
+	<file src = "i/wroc.png" />
+	<file src = "i/wroc2.png" />
+	<oop>true</oop>
+</meta>
