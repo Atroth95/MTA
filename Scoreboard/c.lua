@@ -44,7 +44,7 @@ function classData:enableGUI ()
 			table.sort(gracze,self.sortTableFunc)
 		end 
 		addEventHandler("onClientRender",root,self.renderFunc)
-		bg = not bg and dxCreateTexture("i/tlo.png", "argb", false, "clamp") or bg
+		bg = dxCreateTexture("i/tlo.png", "argb", false, "clamp")
 		self.active = true
 	else
 		gracze = {}
