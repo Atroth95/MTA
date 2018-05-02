@@ -1,0 +1,11 @@
+<meta>
+	<script src = 'notif_c.lua' type = 'client' cache = 'false' />
+	
+	<file src = 'files/error.png' />
+	<file src = 'files/success.png' />
+	<file src = 'files/info.png' />
+	<file src = 'files/OpenSans-Light.ttf' />
+	
+	<export function = 'createNotifS' type = 'server' />
+	<export function = 'createNotif' type = 'client' />
+</meta>
