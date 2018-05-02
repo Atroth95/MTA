@@ -56,13 +56,13 @@ end
 
 function classData:moveIndexUp ()
 	if self.active then 
-		self.scroll = self.scroll - 1 >= 0 and self.scroll - 1 or self.scroll
+		self.scroll = self.scroll - 1 + self.max >= 0 and self.scroll - 1 or self.scroll
 	end
 end 
 
 function classData:moveIndexDown ()
 	if self.active then 
-		self.scroll = self.scroll + 1 <= #gracze and self.scroll + 1 or self.scroll
+		self.scroll = self.scroll + 1 + self.max <= #gracze and self.scroll + 1 or self.scroll
 	end
 end 
 
