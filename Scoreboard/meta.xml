@@ -1,0 +1,5 @@
+<meta>
+	<script src = "c.lua" type = "client" cache = "false" />
+	<file src = "f/OpenSans-Light.ttf" />
+	<file src = "i/tlo.png" />
+</meta>
