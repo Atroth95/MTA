@@ -32,7 +32,7 @@ class.__index = class
 function class:drawElements () 
 	if self.active then 
 		dxDrawImage(screenX-1600/zoom,100/zoom,420/zoom,120/zoom,"i/main.png")
-		if self.female or self.male or then 
+		if self.female or self.male then 
 			if isCursorOnElement(screenX-1600/zoom,220/zoom,420/zoom,55/zoom) then 
 				dxDrawImage(screenX-1600/zoom,220/zoom,420/zoom,55/zoom,"i/wroc2.png")
 			else
