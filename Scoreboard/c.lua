@@ -5,6 +5,7 @@ if screenX < 1920 then
 end 
 
 local gracze = {}
+local bg
 
 local font = dxCreateFont("f/OpenSans-Light.ttf",14)
 
@@ -12,7 +13,7 @@ local classData = {}
 classData.__index = classData
 
 function classData:drawElements ()
-	dxDrawImage(screenX - 1360/zoom,150/zoom,800/zoom,770/zoom,"i/tlo.png")
+	dxDrawImage(screenX - 1360/zoom,150/zoom,800/zoom,770/zoom,bg)
 	dxDrawText(tostring(#getElementsByType("player")),screenX-1137/zoom,223/zoom,100/zoom,30/zoom,tocolor(255,255,255,255),2,"default-bold")
 	for i,v in ipairs(getElementsByType("player")) do 
 		if gracze[i] then 
@@ -36,32 +37,32 @@ function classData:sortTable (a,b)
 end 
 
 function classData:enableGUI ()
-	if self.active == false then 
+	if not self.active then 
 		for i,v in ipairs(getElementsByType("player")) do 
 			local name = getPlayerName(v)
 			table.insert(gracze,{name,getElementData(v,"id") or 1,"BRAK","BRAK",getPlayerPing(v)})
 			table.sort(gracze,self.sortTableFunc)
 		end 
 		addEventHandler("onClientRender",root,self.renderFunc)
+		bg = not bg and dxCreateTexture("i/tlo.png", "argb", false, "clamp") or bg
 		self.active = true
 	else
 		gracze = {}
 		removeEventHandler("onClientRender",root,self.renderFunc)
+		destroyElement(bg)
 		self.active = false 
 	end 
 end 
 
 function classData:moveIndexUp ()
-	if self.active == true then 
-		if self.scroll <= 0 then self.scroll = 1 end 
-		self.scroll = self.scroll - 1 
+	if self.active then 
+		self.scroll = self.scroll - 1 >= 0 and self.scroll - 1 or self.scroll
 	end
 end 
 
 function classData:moveIndexDown ()
-	if self.active == true then 
-		if self.scroll + self.max >=#gracze then return end 
-		self.scroll = self.scroll + 1
+	if self.active then 
+		self.scroll = self.scroll + 1 <= #gracze and self.scroll + 1 or self.scroll
 	end
 end 
 
